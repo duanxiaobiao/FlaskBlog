@@ -1,0 +1,29 @@
+
+.card{
+    margin: auto 15%;
+
+}
+
+/*#carouselExampleIndicators{*/
+/*    width: 80%;*/
+/*}*/
+
+.summary-list .media {
+    background-color: #f5f5f5;
+    margin: 0.5rem;
+}
+
+.avatar{
+    width: 20px;
+}
+
+.text-info a{
+    color: #17a2b8!important;
+    font-size: 1rem;
+}
+.card>.list-group {
+    border-top: none;
+}
+.badge{
+    display: initial;
+}

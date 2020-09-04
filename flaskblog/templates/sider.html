@@ -1,0 +1,38 @@
+<div class="card border-secondary mb-3" style="margin: auto 5%;">
+                <div class="card-body text-secondary">
+                    <h5 class="card-title">个人资料</h5>
+                    <hr>
+                    <div class="row">
+                    <div class="col-5"><a href="{{ url_for('blog.index') }}"><img src="{{ url_for('static',filename = 'img/100.png') }}" alt="" style="border-radius: 50px;width: 100%;"></a></div>
+                    <div class="col-7">
+                        <span>离愁&入戏太深</span>
+                        <hr>
+                    </div>
+                        <br>
+                    <p>&nbsp;&nbsp;一个Python菜鸟，正在学习Flask建站...</p>
+                    </div>
+                </div>
+                <div class="card-footer">Header</div>
+            </div>
+
+<div class="card  border-secondary mb-3" style="margin: auto 5%;">
+    <div class="card-header">分类</div>
+    <ul class="list-group">
+        {% for category in categores %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ url_for('blog.category',category_id = category.id) }}">{{ category.name }}</a>
+                <span class="badge badge-primary badge-pill">{{ category.articles|list|length }}</span>
+            </li>
+        {% endfor %}
+
+
+    </ul>
+</div>
+<div class="card  border-secondary mb-3" style="margin: auto 5%;">
+    <div class="card-header">标签云</div>
+    <div class="card-body text-secondary" style="min-height: 200px;">
+        {% for tag in tags %}
+            <a href="{{ url_for('blog.tag',tag_id = tag.id) }}" class="badge {{ tag_color|random }}">{{ tag.name}}</a>
+        {% endfor %}
+    </div>
+</div>

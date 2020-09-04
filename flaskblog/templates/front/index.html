@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12" style="text-align: center;">{{flash_macros.flash_msg()}}</div>
+    </div>
+    <div class="row">
+        <br><br>
+        <div class="col-lg-9 col-md-12">
+        {% block common_content %}
+        <!--轮播图开始---->
+             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"
+                        class="active"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="https://www.h3blog.com/article/python-xet-video-download2/">
+                            <img class="d-block w-100" src="http://cdn.h3blog.com/20200611105009.jpg" alt="小鹅通视频怎么下载？用python实现小鹅通视频下载">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>小鹅通视频怎么下载？用python实现小鹅通视频下载</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.h3blog.com/article/python-baidu-tianji-push/">
+                            <img class="d-block w-100" src="https://www.h3blog.com/admin/uploads/20200327222642.png" alt="python实现百度天极快速收录推送接口并记录推送日志">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>python实现百度天极快速收录推送接口并记录推送日志</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.h3blog.com/article/python-push-sitemap-baidu-script/">
+                            <img class="d-block w-100" src="http://cdn.h3blog.com/python-design-800x400.png" alt="根据sitemap一键推送给百度收录的python小脚本">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>根据sitemap一键推送给百度收录的python小脚本</h5>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        <!---轮播图结束------>
+            <hr>
+            <main>
+            <!----面包屑------------>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
+            <!----面包屑------------>
+                <br>
+                <!--------文章加载------------>
+                {% include 'front/articles.html' %}
+                <!----------文章结束---------->
+                {% if articles %}
+                    <!--------分页----------->
+                    <div class="page-footer">{{ render_pagination(pagination) }}</div>
+                {% endif %}
+
+             </main>
+        {% endblock  %}
+        </div>
+
+        <div class="col-lg-3 col-md-12" id="collg3">
+            {% include 'sider.html' %}
+
+        </div>
+    </div>
+{% endblock %}

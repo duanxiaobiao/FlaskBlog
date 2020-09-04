@@ -1,0 +1,27 @@
+{% extends 'front/index.html' %}
+{% block common_content %}
+    <main>
+        <!----面包屑------------>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('blog.index') }}">Home</a></li>
+            {% if category %}
+            <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+            {% else %}
+            <li class="breadcrumb-item active" aria-current="page">{{ tag.name }}</li>
+            {% endif %}
+            </ol>
+        </nav>
+        <!----面包屑------------>
+        <br>
+        <!--------文章加载------------>
+        {% include 'front/articles.html' %}
+        <!----------文章结束---------->
+        {% if articles %}
+            <!--------分页----------->
+            <div class="page-footer">{{ render_pagination(pagination) }}</div>
+        {% endif %}
+
+     </main>
+
+{% endblock %}
